@@ -1,0 +1,5 @@
+{
+  "instanceName": "foo",
+  "sources": [],
+  "sinks": []
+}

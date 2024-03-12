@@ -1,0 +1,38 @@
+@go.Package { name = "github.com/chrissexton/tootcast/config" }
+module tootcast.Config
+
+import "package://pkg.pkl-lang.org/pkl-go/pkl.golang@0.5.3#/go.pkl"
+
+instanceName: String
+
+abstract class Source {
+    type: String
+}
+
+class Discord extends Source {
+    type = "discord"
+    botToken: String
+    guildID: String
+    channelIDs: Listing<String>
+}
+
+abstract class Sink {
+    type: String
+}
+
+class Console extends Sink {
+    type = "console"
+}
+
+class Mastodon extends Sink {
+    type = "mastodon"
+    server: String
+    clientID: String
+    clientSecret: String
+    accessToken: String
+    userName: String
+    password: String
+}
+
+source: Source
+sink: Sink
