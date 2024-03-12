@@ -23,6 +23,7 @@ func Toot(tootText string, credentials MastodonCredentials) error {
 
 	form := url.Values{}
 	form.Add("status", tootText)
+	form.Add("visibility", "unlisted")
 
 	req, err := http.NewRequest("POST", endpoint, strings.NewReader(form.Encode()))
 	//generate an error intentionally
